@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>
+        Leaves Status
+    </title>
+    <link rel="shortcut icon" href="https://academic.bits-pilani.ac.in/SWD/Student/Images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./index_files/mystyle.css">
+    <link type="text/css" href="./index_files/reset.css" rel="stylesheet">
+    <link type="text/css" href="./index_files/module.css" rel="stylesheet">
+    <link type="text/css" href="./index_files/main.css" rel="stylesheet">
+    <link type="text/css" href="./index_files/jquery.autocomplete.css" rel="stylesheet">
+    <link type="text/css" href="./index_files/datepicker_style.css" rel="stylesheet">
+
+
+
+    <script type="text/javascript">
+        var window_style = "width=900,height=1000,toolbar=0,menubar=0,location=0,status=yes,scrollbars=yes,resizable=yes,left=50,top=50";
+        function Popup_window(window_url) {
+            window.open(window_url, "", window_style);
+        }
+    </script>
+
+    <style>
+    /* Simple modal styles for Apply For Leaves form */
+    .modal-overlay {position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:none;align-items:center;justify-content:center;z-index:9999}
+    .modal {background:#fff;border-radius:6px;padding:18px;max-width:640px;width:92%;box-shadow:0 6px 30px rgba(0,0,0,0.2)}
+    .modal h2{margin-top:0;margin-bottom:8px}
+    .modal .row{display:flex;gap:8px;margin-bottom:8px}
+    .modal label{width:120px;font-weight:600}
+    .modal input[type=text], .modal input[type=date], .modal textarea{flex:1;padding:6px;border:1px solid #ccc;border-radius:3px}
+    .modal .actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+    .modal button{padding:8px 12px}
+    </style>
+
+
+</head>
+
+<body><div class="note"></div><div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" style="padding-bottom: 0px; padding-right: 0px; display: none;"><div id="cboxWrapper" style=""><div style=""><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxLoadedContent" class=" " style="width: 0px; height: 0px; overflow: hidden;"></div><div id="cboxLoadingOverlay" class=" " style=""></div><div id="cboxLoadingGraphic" class=" " style=""></div><div id="cboxTitle" class=" " style=""></div><div id="cboxCurrent" class=" " style=""></div><div id="cboxNext" class=" " style=""></div><div id="cboxPrevious" class=" " style=""></div><div id="cboxSlideshow" class=" " style=""></div><div id="cboxClose" class=" " style=""></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div>
+    <div class="note"></div>
+    <div id="cboxOverlay" style="display: none;"></div>
+    <div id="colorbox" class="" style="padding-bottom: 0px; padding-right: 0px; display: none;">
+        <div id="cboxWrapper" style="">
+            <div style="">
+                <div id="cboxTopLeft" style="float: left;"></div>
+                <div id="cboxTopCenter" style="float: left;"></div>
+                <div id="cboxTopRight" style="float: left;"></div>
+            </div>
+            <div style="clear: left;">
+                <div id="cboxMiddleLeft" style="float: left;"></div>
+                <div id="cboxContent" style="float: left;">
+                    <div id="cboxLoadedContent" class=" " style="width: 0px; height: 0px; overflow: hidden;"></div>
+                    <div id="cboxLoadingOverlay" class=" " style=""></div>
+                    <div id="cboxLoadingGraphic" class=" " style=""></div>
+                    <div id="cboxTitle" class=" " style=""></div>
+                    <div id="cboxCurrent" class=" " style=""></div>
+                    <div id="cboxNext" class=" " style=""></div>
+                    <div id="cboxPrevious" class=" " style=""></div>
+                    <div id="cboxSlideshow" class=" " style=""></div>
+                    <div id="cboxClose" class=" " style=""></div>
+                </div>
+                <div id="cboxMiddleRight" style="float: left;"></div>
+            </div>
+            <div style="clear: left;">
+                <div id="cboxBottomLeft" style="float: left;"></div>
+                <div id="cboxBottomCenter" style="float: left;"></div>
+                <div id="cboxBottomRight" style="float: left;"></div>
+            </div>
+        </div>
+        <div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
+    </div>
+    <form name="aspnetForm" method="post" action="https://academic.bits-pilani.ac.in/SWD/Student/View_Application_Status_Step1.aspx" id="aspnetForm" autocomplete="off">
+        <div>
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="Nope=">
+        </div>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var theForm = document.forms['aspnetForm'];
+            if (!theForm) {
+                theForm = document.aspnetForm;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }
+            //]]>
+        </script>
+
+
+        <script src="./index_files/WebResource.axd" type="text/javascript"></script>
+
+        <div>
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="1A07E830">
+            <input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0">
+            <input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0">
+            <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+            <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+            <input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+        </div>
+        <div id="main" align="center">
+            <table id="t1" border="0" cellpadding="0" cellspacing="0" width="100% " bgcolor="White">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div id="Div1" align="left">
+                                <div class="headerWrapper" style="background-position: right 0px;">
+                                    <div class="headerWrapperFix">
+                                        <h1 class="hidden"><span>
+</span>                                             BITS Pilani</h1>
+                                        <div class="logoWrapper">
+                                            <a href="https://academic.bits-pilani.ac.in/SWD/Student/View_Application_Status_Step1.aspx#" class="logo" target="_blank">
+                                                <img src="./index_files/BITS_Pilani_campus_logo.gif" alt="BITS Logo">
+                                            </a>
+                                        </div>
+
+                                        <ul class="mainNav">
+                                            <li><a href="#" id="applyLeaveBtn">Apply
+                                                    For Leaves</a></li>
+                                            <li><a href="https://academic.bits-pilani.ac.in/SWD/Student/Downloads/Parent&#39;s_Consent_Form.pdf" target="_blank">Download Parent's Consent Form</a></li>
+                                            <li class=""><a href="https://academic.bits-pilani.ac.in/SWD/Student/View_Application_Status_Step1.aspx">Leaves
+                                                    Status</a></li>
+                                        </ul>
+
+
+                                        <ul class="siteInfo" style="right: 110px; width: 380px; top: 8px; height: 50px">
+                                            <li style="width: 435px">
+                                                <p class="siteLog" style="text-align: center">
+                                                    <br>
+                                                    <span style="font-size: 0.9em"><span style="font-size: 1.1em">Student Welfare Division
+                                                            (SWD)</span> </span>
+                                                </p>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td class="body_txt_in" style="height: 30px">
+                            <table id="UserInfo" style="width: 100%">
+                                <tbody>
+                                    <tr>
+                                        <td width="70%" align="left" style="margin-left:45px ">
+                                            <div> <span style="color:#211d70"><strong><span style="color:#211d70">&nbsp;&nbsp;&nbsp;&nbsp;W</span>elcome</strong>,</span>
+                                                <span id="ctl00_Name" style="display:inline-block;color:#211D70;font-weight:bold;width:469px;"></span>
+                                            </div>
+
+
+                                        </td>
+                                        <td width="30%">
+                                            <table id="table_logout_details" width="100%">
+                                                <tbody>
+                                                    <tr>
+
+                                                        <td>
+                                                            <div id="div_logout" align="right" style="margin-right:20px">
+                                                                <span id="ctl00_lbl_current_date" style="color:#211D70;font-weight:bold;">Thursday, November 20, 2025</span>&nbsp;
+                                                                <span id="ctl00_lbl_spacer" style="color:#211D70;font-weight:bold;">|</span>&nbsp;
+
+                                                                <a class="footer" href="https://academic.bits-pilani.ac.in/SWD/Student/Logout.aspx"><strong><span style="font-size: 8pt">[Logout]</span></strong></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="height: 300px">
+                                <tbody>
+                                    <tr>
+                                        <td id="contentpane" style="width: 100%; vertical-align: top">
+                                            <div align="center">
+
+
+                                                <table border="0" cellpadding="0" align="center" cellspacing="0" style="width: 788px;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style="height:10px"></td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td class="head_already" width="100%" style="height: 20px; margin-right:150px">
+                                                                <div align="center">
+                                                                    Leaves Status
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="height:10px"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div id="ctl00_ContentPlaceHolder1_main_div" align="center">
+                                                    <table border="0" class="body_txt_in" align="center" cellspacing="0" style="width: 98%; height: 100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="height:10px"></td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td style="height: 30px; text-align: center;" colspan="3">
+                                                                    <div align="center">
+                                                                        <div>
+                                                                            <table cellspacing="0" rules="all" border="1" id="ctl00_ContentPlaceHolder1_DG1" style="border-color:#CCCCCC;border-width:1px;border-style:Solid;width:98%;border-collapse:collapse;">
+                                                                                <tbody>
+                                                                                    <tr align="left" valign="middle" style="color:Black;background-color:#F4F4F4;border-color:#CCCCCC;border-width:1px;border-style:solid;font-weight:bold;">
+                                                                                        <th scope="col" style="width:50px;">Sr No.
+                                                                                        </th>
+                                                                                        <th scope="col">IDNO</th>
+                                                                                        <th scope="col">Name</th>
+                                                                                        <th scope="col">Hostel</th>
+                                                                                        <th scope="col">Room No.</th>
+                                                                                        <th scope="col">Departure Date
+                                                                                        </th>
+                                                                                        <th scope="col">Return Date</th>
+                                                                                        <th scope="col">Leave Reason
+                                                                                        </th>
+                                                                                        <th scope="col">Application
+                                                                                            Status</th>
+                                                                                        <th scope="col">Leaves Applied
+                                                                                            On</th>
+                                                                                        <th scope="col" style="width:90px;">Action
+                                                                                        </th>
+                                                                                        <th scope="col" style="width:160px;">
+                                                                                            Download Leave Approval</th>
+                                                                                    </tr>
+                                                                                    <!-- <tr align="left" valign="middle" style="background-color:White;">
+                                                                                        <td align="left" valign="top" style="border-color:Black;">
+                                                                                            1
+                                                                                        </td>
+                                                                                        <td style="border-color:Black;">
+                                                                                            2027A9PS6969P</td>
+                                                                                        <td style="border-color:Black;">
+                                                                                            YOUR NAME</td>
+                                                                                        <td style="border-color:Black;">
+                                                                                            Meera Bhawan</td>
+                                                                                        <td style="border-color:Black;">
+                                                                                            6969</td>
+                                                                                        <td style="border-color:Black;">
+                                                                                            29-Feb-2022</td>
+                                                                                        <td style="border-color:Black;">
+                                                                                            30-Feb-2022</td>
+                                                                                        <td style="border-color:Black;">
+                                                                                            Leave reason in one
+                                                                                            sentence</td>
+                                                                                        <td style="color:DarkGreen;border-color:Black;font-weight:bold;">
+                                                                                            Approved</td>
+                                                                                        <td style="border-color:Black;">
+                                                                                            31-Feb-2022</td>
+                                                                                        <td style="border-color:Black;">
+                                                                                            <a href="https://academic.bits-pilani.ac.in/SWD/Student/View_Application_Status_Processing.aspx"><b>View
+                                                                                                    Details</b></a>
+                                                                                        </td>
+                                                                                        <td style="border-color:Black;">
+                                                                                            <div id="ctl00_ContentPlaceHolder1_DG1_ctl03_Div_Leave_Approval_Slip">
+
+
+
+                                                                                                <a href="https://academic.bits-pilani.ac.in/SWD/Student/Download_Leave_Approval_PreProcessing.aspx" target="_blank"><b>Download
+                                                                                                        Leave
+                                                                                                        Approval</b></a>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr> -->
+
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td style="height: 30px;" colspan="2">
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div><br>
+                                                <br><br>
+
+
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <script type="text/javascript">
+            //<![CDATA[
+
+            theForm.oldSubmit = theForm.submit;
+            theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+            theForm.oldOnSubmit = theForm.onsubmit;
+            theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+            //]]>
+        </script>
+    </form>
+        <!-- PDF Library -->
+    <script src="https://unpkg.com/pdf-lib@^1.16.0/dist/pdf-lib.min.js"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.8"></script>
+    <script src="download_approval/leave-approval.js"></script>
+
+        <!-- Modal for Apply For Leaves -->
+        <div class="modal-overlay" id="applyModal">
+            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="applyModalTitle">
+                <h2 id="applyModalTitle">Apply For Leave</h2>
+                <form id="leaveForm">
+                    <div class="row"><label for="idno">IDNO</label><input id="idno" name="idno" type="text" required></div>
+                    <div class="row"><label for="name">Name</label><input id="name" name="name" type="text" required></div>
+                    <div class="row"><label for="hostel">Hostel</label><input id="hostel" name="hostel" type="text"></div>
+                    <div class="row"><label for="room">Room No.</label><input id="room" name="room" type="text"></div>
+                    <div class="row"><label for="dept">Departure</label><input id="dept" name="dept" type="date" required></div>
+                    <div class="row"><label for="ret">Return</label><input id="ret" name="ret" type="date" required></div>
+                    <div class="row"><label for="reason">Reason</label><textarea id="reason" name="reason" rows="2"></textarea></div>
+                    <div class="row"><label for="applied">Leaves Applied On</label><input id="applied" name="applied" type="date"></div>
+                    <div class="actions">
+                        <button type="button" id="cancelApply">Cancel</button>
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            // Manage modal, persist name and leaves in localStorage, and render saved leaves
+            document.addEventListener('DOMContentLoaded', function(){
+                var applyBtn = document.getElementById('applyLeaveBtn');
+                var modal = document.getElementById('applyModal');
+                var cancel = document.getElementById('cancelApply');
+                var form = document.getElementById('leaveForm');
+                var table = document.getElementById('ctl00_ContentPlaceHolder1_DG1');
+
+                function formatDateInput(d){ if(!d) return ''; var dt = new Date(d); var opt = {day:'2-digit', month:'short', year:'numeric'}; return dt.toLocaleDateString('en-GB', opt).replace(/ /g,'-'); }
+
+                // Load persisted header name
+                var storedName = localStorage.getItem('swd_user_name');
+                if(storedName){ var headerName = document.getElementById('ctl00_Name'); if(headerName) headerName.textContent = storedName; }
+
+                // Helper to attach click handlers to links inside a row
+                function attachLinkBlockHandlers(row){
+                    var anchors = row.querySelectorAll('a');
+                    anchors.forEach(function(a){ 
+                        if(a.href && a.href.indexOf('leave_details.html') >= 0) return; // Allow View Details link
+                        if(a.classList.contains('download-approval')) return; // Handle download links separately
+                        a.addEventListener('click', function(e){ 
+                            e.preventDefault(); 
+                            alert('Error! Please Relogin'); 
+                        }); 
+                    });
+                }
+
+                // Render a leave row from an object
+                function renderRow(obj, sr){
+                    var tr = document.createElement('tr'); tr.setAttribute('align','left'); tr.setAttribute('valign','middle'); tr.style.backgroundColor='White';
+                    var cells = [sr, obj.idno||'', obj.name||'', obj.hostel||'', obj.room||'', formatDateInput(obj.dept), formatDateInput(obj.ret), obj.reason||'', obj.status||'Approved', formatDateInput(obj.applied) || (new Date()).toLocaleDateString('en-GB').replace(/\//g,'-')];
+                    cells.forEach(function(c, idx){ var td = document.createElement('td'); td.style.borderColor='Black'; if(idx===0){ td.setAttribute('align','left'); td.setAttribute('valign','top'); } if(idx===8){ td.style.color='DarkGreen'; td.style.fontWeight='bold'; } td.textContent = c; tr.appendChild(td); });
+                    var params = 'idno=' + encodeURIComponent(obj.idno||'') + '&name=' + encodeURIComponent(obj.name||'') + '&hostel=' + encodeURIComponent(obj.hostel||'') + '&room=' + encodeURIComponent(obj.room||'') + '&dept=' + encodeURIComponent(obj.dept||'') + '&ret=' + encodeURIComponent(obj.ret||'') + '&reason=' + encodeURIComponent(obj.reason||'') + '&applied=' + encodeURIComponent(obj.applied||'') + '&status=' + encodeURIComponent(obj.status||'Approved');
+                    var actionTd = document.createElement('td'); actionTd.style.borderColor='Black'; actionTd.innerHTML = '<a href="./leave_details.html?' + params + '" target="_blank"><b>View Details</b></a>'; tr.appendChild(actionTd);
+                    var downloadTd = document.createElement('td'); downloadTd.style.borderColor='Black'; 
+                    var downloadLink = document.createElement('a'); 
+                    downloadLink.href = '#'; 
+                    downloadLink.innerHTML = '<b>Download Leave Approval</b>';
+                    downloadLink.className = 'download-approval';
+                    downloadLink.style.cursor = 'pointer'; // Make it look clickable
+                    downloadTd.appendChild(downloadLink);
+                    tr.appendChild(downloadTd);
+                    
+                    // Setup download button with leave data and prevent default behavior
+                    downloadLink.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        LeaveApproval.generateLeavePDF(obj);
+                    });
+                    var tbody = table.querySelector('tbody'); tbody.appendChild(tr);
+                    attachLinkBlockHandlers(tr);
+                }
+
+                // Load persisted leaves and render
+                var storedLeaves = localStorage.getItem('swd_leaves');
+                if(storedLeaves){
+                    try{
+                        var leaves = JSON.parse(storedLeaves) || [];
+                        leaves.forEach(function(l, i){ renderRow(l, i+1); });
+                    }catch(e){ console.error('Invalid leaves in storage', e); }
+                }
+
+                // Open modal and default applied date to today
+                applyBtn && applyBtn.addEventListener('click', function(e){
+                    e.preventDefault();
+                    var appliedInput = document.getElementById('applied');
+                    if(appliedInput && !appliedInput.value){
+                        var today = new Date(); var yyyy = today.getFullYear(); var mm = String(today.getMonth()+1).padStart(2,'0'); var dd = String(today.getDate()).padStart(2,'0');
+                        appliedInput.value = yyyy + '-' + mm + '-' + dd;
+                    }
+                    modal.style.display = 'flex';
+                });
+                cancel && cancel.addEventListener('click', function(){ modal.style.display='none'; form.reset(); });
+
+                // Handle form submit: persist and append
+                form.addEventListener('submit', function(e){
+                    e.preventDefault();
+                    var idno = document.getElementById('idno').value || '';
+                    var name = document.getElementById('name').value || '';
+                    var hostel = document.getElementById('hostel').value || '';
+                    var room = document.getElementById('room').value || '';
+                    var dept = document.getElementById('dept').value || '';
+                    var ret = document.getElementById('ret').value || '';
+                    var reason = document.getElementById('reason').value || '';
+                    var applied = document.getElementById('applied') ? document.getElementById('applied').value : '';
+
+                    var leaves = [];
+                    var stored = localStorage.getItem('swd_leaves');
+                    if(stored){ try{ leaves = JSON.parse(stored) || []; }catch(err){ leaves = []; } }
+
+                    var newLeave = { idno: idno, name: name, hostel: hostel, room: room, dept: dept, ret: ret, reason: reason, applied: applied, status: 'Approved' };
+                    leaves.push(newLeave);
+                    localStorage.setItem('swd_leaves', JSON.stringify(leaves));
+
+                    renderRow(newLeave, leaves.length);
+
+                    // Sync header welcome name with submitted name and persist
+                    try{ var headerName = document.getElementById('ctl00_Name'); if(headerName && name){ headerName.textContent = name; localStorage.setItem('swd_user_name', name); } }catch(ex){}
+
+                    modal.style.display='none'; form.reset();
+                });
+
+            });
+        </script>
+
+
+
+</body></html>

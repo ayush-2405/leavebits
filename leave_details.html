@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Leave Details</title>
+    <link rel="shortcut icon" href="https://academic.bits-pilani.ac.in/SWD/Student/Images/favicon.ico">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f5f5; }
+        .header { background: white; padding: 20px 40px; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; }
+        .logo-section { display: flex; align-items: center; gap: 15px; }
+        .logo { width: 50px; height: 50px; }
+        .title { font-size: 18px; font-weight: bold; color: #333; }
+        .go-back { display: inline-block; background: #003d82; color: white; padding: 10px 24px; border-radius: 25px; text-decoration: none; font-size: 12px; font-weight: bold; }
+        .go-back:hover { background: #002d62; }
+        .container { max-width: 1000px; margin: 20px auto; background: white; border: 1px solid #ddd; }
+        .section-header { background: #4a90e2; color: white; padding: 12px 20px; font-weight: bold; font-size: 14px; }
+        .section-body { padding: 0; }
+        .row { display: flex; border-bottom: 1px solid #eee; }
+        .row:last-child { border-bottom: none; }
+        .label { width: 35%; padding: 12px 20px; background: #f9f9f9; font-weight: 600; color: #555; font-size: 13px; border-right: 1px solid #eee; }
+        .value { width: 65%; padding: 12px 20px; color: #333; font-size: 13px; display: flex; align-items: center; }
+        .value.highlight { color: #d32f2f; font-weight: bold; }
+        .value a { color: #4a90e2; text-decoration: none; }
+        .value a:hover { text-decoration: underline; }
+        .colon { margin: 0 8px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-section">
+            <img src="./index_files/BITS_Pilani_campus_logo.gif" alt="BITS Logo" class="logo" onerror="this.style.display='none'">
+            <div class="title">Leave Application Details</div>
+        </div>
+        <a href="#" class="go-back" id="goBackBtn">GO BACK</a>
+    </div>
+
+    <div class="container">
+        <!-- Student Details -->
+        <div class="section-header">Student Details</div>
+        <div class="section-body">
+            <div class="row">
+                <div class="label">IDNO<span class="colon">:</span></div>
+                <div class="value" id="detailIdno">-</div>
+            </div>
+            <div class="row">
+                <div class="label">Name<span class="colon">:</span></div>
+                <div class="value highlight" id="detailName">-</div>
+            </div>
+            <div class="row">
+                <div class="label">BITS Email ID<span class="colon">:</span></div>
+                <div class="value" id="detailEmail">-</div>
+            </div>
+            <div class="row">
+                <div class="label">Contact No.<span class="colon">:</span></div>
+                <div class="value" id="detailContact">6306808649</div>
+            </div>
+        </div>
+
+        <!-- Hostel Details -->
+        <div class="section-header">Hostel Details</div>
+        <div class="section-body">
+            <div class="row">
+                <div class="label">Hostel<span class="colon">:</span></div>
+                <div class="value highlight" id="detailHostel">-</div>
+            </div>
+            <div class="row">
+                <div class="label">Room No.<span class="colon">:</span></div>
+                <div class="value highlight" id="detailRoom">-</div>
+            </div>
+            <div class="row">
+                <div class="label">Warden Name<span class="colon">:</span></div>
+                <div class="value" id="detailWarden">Prof. Trilok Mathur</div>
+            </div>
+            <div class="row">
+                <div class="label">Warden Email Id<span class="colon">:</span></div>
+                <div class="value" id="detailWardenEmail">budh.warden@pilani.bits-pilani.ac.in</div>
+            </div>
+        </div>
+
+        <!-- Leave Details -->
+        <div class="section-header">Leave Details</div>
+        <div class="section-body">
+            <div class="row">
+                <div class="label">Departure Date<span class="colon">:</span></div>
+                <div class="value highlight" id="detailDeparture">-</div>
+            </div>
+            <div class="row">
+                <div class="label">Return Date<span class="colon">:</span></div>
+                <div class="value highlight" id="detailReturn">-</div>
+            </div>
+            <div class="row">
+                <div class="label">Leave Reason<span class="colon">:</span></div>
+                <div class="value" id="detailReason">-</div>
+            </div>
+            <div class="row">
+                <div class="label">Leaves Applied On<span class="colon">:</span></div>
+                <div class="value" id="detailAppliedOn">-</div>
+            </div>
+            <div class="row">
+                <div class="label">Supporting Document<span class="colon">:</span></div>
+                <div class="value"><a href="#">View Supporting Document</a></div>
+            </div>
+        </div>
+
+        <!-- Approval Status -->
+        <div class="section-header">Approval Status</div>
+        <div class="section-body">
+            <div class="row">
+                <div class="label">Approval Status<span class="colon">:</span></div>
+                <div class="value" id="detailStatus">-</div>
+            </div>
+            <div class="row">
+                <div class="label">Approval Remarks<span class="colon">:</span></div>
+                <div class="value" id="detailRemarks">-</div>
+            </div>
+            <div class="row">
+                <div class="label">Processed By<span class="colon">:</span></div>
+                <div class="value" id="detailProcessedBy">Prof. Trilok Mathur</div>
+            </div>
+            <div class="row">
+                <div class="label">Processed On<span class="colon">:</span></div>
+                <div class="value" id="detailProcessedOn">-</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get leave data from URL query parameters
+        function getQueryParam(name) {
+            var url = new URL(window.location.href);
+            return url.searchParams.get(name);
+        }
+
+        function parseDate(dateStr) {
+            if (!dateStr) return '';
+            try {
+                var date = new Date(dateStr);
+                if (isNaN(date.getTime())) {
+                    var parts = dateStr.split('-');
+                    if (parts.length === 3) {
+                        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                        var monthIdx = months.findIndex(function(m){ return m.toLowerCase() === parts[1].toLowerCase(); });
+                        if (monthIdx >= 0) {
+                            date = new Date(parts[2], monthIdx, parts[0]);
+                            var opt = {day:'2-digit', month:'short', year:'numeric'};
+                            return date.toLocaleDateString('en-GB', opt).replace(/\//g,'-');
+                        }
+                    }
+                    return dateStr;
+                }
+                var opt = {day:'2-digit', month:'short', year:'numeric'};
+                return date.toLocaleDateString('en-GB', opt).replace(/\//g,'-');
+            } catch (e) {
+                return dateStr;
+            }
+        }
+
+        // Populate page with leave data
+        var idno = getQueryParam('idno') || '-';
+        var name = getQueryParam('name') || '-';
+        document.getElementById('detailIdno').textContent = idno;
+        document.getElementById('detailName').textContent = name;
+        document.getElementById('detailEmail').textContent = (idno !== '-' ? idno.toLowerCase() + '@pilani.bits-pilani.ac.in' : '-');
+        document.getElementById('detailHostel').textContent = getQueryParam('hostel') || '-';
+        document.getElementById('detailRoom').textContent = getQueryParam('room') || '-';
+        document.getElementById('detailDeparture').textContent = parseDate(getQueryParam('dept')) || '-';
+        document.getElementById('detailReturn').textContent = parseDate(getQueryParam('ret')) || '-';
+        document.getElementById('detailReason').textContent = getQueryParam('reason') || '-';
+        document.getElementById('detailAppliedOn').textContent = parseDate(getQueryParam('applied')) || '-';
+        document.getElementById('detailStatus').textContent = getQueryParam('status') || 'Approved';
+        
+        var today = new Date();
+        var processedDate = today.toLocaleDateString('en-GB', {day:'2-digit', month:'short', year:'numeric'});
+        var processedTime = today.toLocaleTimeString('en-GB', {hour:'2-digit', minute:'2-digit'});
+        document.getElementById('detailProcessedOn').textContent = processedDate + ' ' + processedTime;
+
+        // Go back button
+        document.getElementById('goBackBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.history.back();
+        });
+    </script>
+</body>
+</html>
