@@ -22,16 +22,66 @@ async function generateLeavePDF(leaveData) {
             }, 5000);
         }
 
-        // Fetch the PDF template
-        const url = 'download_approval/leave.pdf';
-        console.log('Fetching PDF template from:', url);
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`Failed to fetch PDF template: ${response.status} ${response.statusText}`);
+        let existingPdfBytes;
+        
+        try {
+            // First try: Direct path
+            const url = 'download_approval/leave.pdf';
+            console.log('Attempt #1: Fetching PDF from:', url);
+            
+            const response = await fetch(url, {
+                cache: 'no-cache',
+                headers: {
+                    'Accept': 'application/pdf'
+                }
+            });
+            
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            
+            existingPdfBytes = await response.arrayBuffer();
+            if (!existingPdfBytes || existingPdfBytes.byteLength === 0) {
+                throw new Error('Empty PDF data received');
+            }
+            console.log('Successfully loaded PDF, size:', existingPdfBytes.byteLength, 'bytes');
+            
+        } catch (firstError) {
+            console.warn('First attempt failed, trying fallback URL...', firstError);
+            
+            try {
+                // Second try: GitHub Pages URL
+                const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
+                const fallbackUrl = `${basePath}/download_approval/leave.pdf`;
+                console.log('Attempt #2: Fetching PDF from:', fallbackUrl);
+                
+                const fallbackResponse = await fetch(fallbackUrl, {
+                    cache: 'no-cache',
+                    headers: {
+                        'Accept': 'application/pdf'
+                    }
+                });
+                
+                if (!fallbackResponse.ok) throw new Error(`HTTP ${fallbackResponse.status}`);
+                
+                existingPdfBytes = await fallbackResponse.arrayBuffer();
+                if (!existingPdfBytes || existingPdfBytes.byteLength === 0) {
+                    throw new Error('Empty PDF data received from fallback');
+                }
+                console.log('Successfully loaded PDF from fallback, size:', existingPdfBytes.byteLength, 'bytes');
+                
+            } catch (secondError) {
+                console.error('All attempts to load PDF failed:', secondError);
+                if (downloadBtn) {
+                    downloadBtn.innerHTML = 'Download Failed';
+                    downloadBtn.style.pointerEvents = '';
+                    setTimeout(() => {
+                        downloadBtn.innerHTML = 'Download Leave Approval';
+                    }, 2000);
+                }
+                throw new Error('Failed to load PDF template. Please try again later.');
+            }
         }
-        const existingPdfBytes = await response.arrayBuffer();
 
-        // Load the PDF document
+        // Load the PDF document with the obtained bytes
         const pdfDoc = await PDFDocument.load(existingPdfBytes);
         const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
         const pages = pdfDoc.getPages();
